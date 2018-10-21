@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ge.vakho.controller.FXMLServerController">
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <bottom>
+            <ToolBar BorderPane.alignment="CENTER">
+              <items>
+                <Button fx:id="startBtn" mnemonicParsing="false" onAction="#handleServerStartButtonAction" text="Start" />
+                  <Button fx:id="stopBtn" disable="true" mnemonicParsing="false" onAction="#handleServerStopButtonAction" text="Stop" />
+              </items>
+            </ToolBar>
+         </bottom>
+         <center>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane hgap="5.0" vgap="5.0">
+                     <children>
+                        <Label text="Port Number:" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="portField" promptText="port number" text="9090" GridPane.columnIndex="1" />
+                        <Label text="Secret:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <PasswordField fx:id="secretField" promptText="password" text="123456" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
