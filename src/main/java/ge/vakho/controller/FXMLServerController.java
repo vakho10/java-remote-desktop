@@ -54,7 +54,7 @@ public class FXMLServerController {
 			// Parse port number and start server
 			final int port = Integer.valueOf(portField.getText());
 
-			Platform.runLater(new ServerHandler(port, robot, rectangle));
+			new ServerHandler(port, robot, rectangle).start();
 
 		} catch (Exception e) {
 			toggleButtons();

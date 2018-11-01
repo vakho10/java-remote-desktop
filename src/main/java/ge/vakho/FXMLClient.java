@@ -35,6 +35,5 @@ public class FXMLClient extends Application {
 			ClientHandler.STOPPED = true;
 	    });
 	}
-
 	
 }

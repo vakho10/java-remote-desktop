@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 
 public class FXMLClientController {
 
@@ -28,7 +29,9 @@ public class FXMLClientController {
 
 	@FXML
 	private ImageView imageView;
-
+	
+	@FXML
+	private BorderPane imageViewParentLayout;	
 
 	@FXML
 	public void initialize() {
@@ -38,6 +41,10 @@ public class FXMLClientController {
 				portField.setText(newValue.replaceAll("[^\\d]", ""));
 			}
 		});
+		
+		// bind imageView's width to parent componenet's width
+		imageView.fitWidthProperty().bind(imageViewParentLayout.widthProperty());
+		imageView.fitHeightProperty().bind(imageViewParentLayout.heightProperty());
 	}
 
 	@FXML
@@ -49,7 +56,7 @@ public class FXMLClientController {
 			// Parse port number and start server
 			final int port = Integer.valueOf(portField.getText());
 
-			Platform.runLater(new ClientHandler(hostField.getText(), port, imageView));
+			new ClientHandler(hostField.getText(), port, imageView).start();
 
 		} catch (Exception e) {
 			toggleButtons();

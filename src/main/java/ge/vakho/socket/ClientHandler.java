@@ -11,6 +11,7 @@ import java.net.UnknownHostException;
 
 import ge.vakho.model.ServerRequest;
 import ge.vakho.model.ServerResponse;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -42,7 +43,7 @@ public class ClientHandler extends Thread {
 			// TODO do stuff with request object
 			System.out.println("Client firstly got: " + firstResponse);
 			try (ByteArrayInputStream bais = new ByteArrayInputStream(firstResponse.getImageBytes())) {
-				imageView.setImage(new Image(bais));
+				Platform.runLater(() -> imageView.setImage(new Image(bais)));
 			}
 			
 			// Loop cycle if application is not stopped yet
